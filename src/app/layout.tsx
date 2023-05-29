@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header'
+import AuthProvider from '@/contexts/Auth.context'
 import ChakraProviders from '@/contexts/Chakra.context'
 
 export const metadata = {
@@ -14,8 +15,10 @@ export default function RootLayout({ children }: Props) {
     <html lang='en'>
       <body>
         <ChakraProviders>
-          <Header />
-          {children}
+          <AuthProvider>
+            <Header />
+            {children}
+          </AuthProvider>
         </ChakraProviders>
       </body>
     </html>

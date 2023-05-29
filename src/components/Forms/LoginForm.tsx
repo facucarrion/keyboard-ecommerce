@@ -2,7 +2,7 @@
 
 import { Button, Heading } from '@chakra-ui/react'
 import { CustomInput } from '../CustomInput'
-import useLogin from '@/hooks/useLogin'
+import useLogin from '@/hooks/useLogin.hook'
 
 export const LoginForm = () => {
   const { handleChange } = useLogin()

@@ -1,4 +1,4 @@
-import { initializeApp, getApps } from 'firebase/app'
+import firebase from 'firebase/compat/app'
 
 const {
   NEXT_PUBLIC_FIREBASE_API_KEY: apiKey,
@@ -20,7 +20,4 @@ const firebaseConfig = {
   measurementId
 }
 
-const FirebaseApp =
-  getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
-
-export default FirebaseApp
+export default firebase.initializeApp(firebaseConfig)

@@ -2,7 +2,7 @@
 
 import { Button, Heading } from '@chakra-ui/react'
 import { CustomInput } from '../CustomInput'
-import useRegister from '@/hooks/useRegister'
+import useRegister from '@/hooks/useRegister.hook'
 
 export const RegisterForm = () => {
   const { handleChange } = useRegister()

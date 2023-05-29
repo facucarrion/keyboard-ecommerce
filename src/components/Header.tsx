@@ -15,6 +15,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
 import Image from 'next/image'
+import useGoogleAuth from '@/hooks/useGoogleAuth.hook'
 
 const paths = [
   { name: 'Home', href: '/' },
@@ -77,10 +78,12 @@ export const MobileNav = () => {
 }
 
 export const DesktopProfile = () => {
+  const { user, signInWithGoogle, signOutFromGoogle } = useGoogleAuth()
+
   return (
     <Flex display={{ base: 'none', md: 'flex' }}>
       <ButtonGroup gap='1'>
-        <Button
+        {/* <Button
           as={Link}
           href='/auth'
         >
@@ -91,7 +94,23 @@ export const DesktopProfile = () => {
           href='/auth'
         >
           Log in
-        </Button>
+        </Button> */}
+
+        {user != null ? (
+          <Image
+            src={
+              user.photoURL ??
+              'https://img.freepik.com/free-icon/user_318-804790.jpg'
+            }
+            alt='PFP Placeholder'
+            width={40}
+            height={20}
+            referrerPolicy='no-referrer'
+          />
+        ) : (
+          <Button onClick={signInWithGoogle}>Login With Google</Button>
+        )}
+        <Button onClick={signOutFromGoogle}>Logout</Button>
       </ButtonGroup>
     </Flex>
   )
