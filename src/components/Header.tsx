@@ -54,12 +54,18 @@ export const MobileNav = () => {
     <Flex display={{ base: 'flex', md: 'none' }}>
       <Menu>
         <MenuButton as={Button}>
-          <HamburgerIcon color='#000000' boxSize='6' />
+          <HamburgerIcon
+            color='#000000'
+            boxSize='6'
+          />
         </MenuButton>
         <MenuList>
           {paths.map(({ name, href }) => (
             <Box key={name}>
-              <MenuItem as={Link} href={href}>
+              <MenuItem
+                as={Link}
+                href={href}
+              >
                 {name}
               </MenuItem>
             </Box>
@@ -74,8 +80,18 @@ export const DesktopProfile = () => {
   return (
     <Flex display={{ base: 'none', md: 'flex' }}>
       <ButtonGroup gap='1'>
-        <Button>Sign Up</Button>
-        <Button>Log in</Button>
+        <Button
+          as={Link}
+          href='/auth'
+        >
+          Sign Up
+        </Button>
+        <Button
+          as={Link}
+          href='/auth'
+        >
+          Log in
+        </Button>
       </ButtonGroup>
     </Flex>
   )
@@ -94,8 +110,18 @@ export const MobileProfile = () => {
           />
         </MenuButton>
         <MenuList>
-          <MenuItem>Sign Up</MenuItem>
-          <MenuItem>Log in</MenuItem>
+          <MenuItem
+            as={Link}
+            href='/auth'
+          >
+            Sign Up
+          </MenuItem>
+          <MenuItem
+            as={Link}
+            href='/auth'
+          >
+            Log in
+          </MenuItem>
         </MenuList>
       </Menu>
     </Flex>
@@ -104,7 +130,15 @@ export const MobileProfile = () => {
 
 export const Header = () => {
   return (
-    <Flex minWidth='max-content' direction='column'>
+    <Flex
+      minWidth='max-content'
+      direction='column'
+      position='sticky'
+      top={0}
+      zIndex={1}
+      backgroundColor='#ffffff88'
+      backdropFilter='blur(10px)'
+    >
       <Flex
         minWidth='max-content'
         alignItems='center'
@@ -112,7 +146,10 @@ export const Header = () => {
         p='2'
       >
         <Box p='2'>
-          <Heading as='h1' size='lg'>
+          <Heading
+            as='h1'
+            size='lg'
+          >
             QUERTY
           </Heading>
         </Box>
